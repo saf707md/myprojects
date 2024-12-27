@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+    <title>parse</title>
+</head>
+<body>
+    <p id="p1">
+
+    </p>
+    <script>
+        let data='{"name":"india","capital":"new delhi","pincode":110001}';
+        document.write('data into javascript object:<br>');
+        let country=JSON.parse(data);
+        document.write( country.name + ":" + country.capital + ":" + country.pincode+'<br>');
+        document.write('javascript object into data<br>');
+        document.write(JSON.stringify(country));
+
+    </script>
+</body>
+</html>

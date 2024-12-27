@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+    <title>oninput event </title>
+    <script>
+        function touppercase(){
+            let text=document.getElementById("message");
+            text.value=text.value.touppercase();
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <input type="text" id="message" oninput="touppercase()">
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adoption</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Welcome to Pet Adoption Center</h1>
+        <p>Find your perfect furry friend and give them a loving forever home!</p>
+    </header>
+
+    <!-- Introduction -->
+    <section class="intro">
+        <p>
+            At our Pet Adoption Center, we believe every animal deserves a home full of love and care. By adopting a pet, 
+            you are not only saving a life but also gaining a loyal companion who will bring happiness to your life.
+            Explore our amazing pets below and find the perfect friend for your family!
+        </p>
+    </section>
+
+    <!-- Pet Gallery -->
+    <section class="pet-gallery">
+        <!-- Pet Card: Dog -->
+        <div class="pet-card">
+            <img src="C:/Users/lenovo/Desktop/fsd proj/dog.jpg" alt="Golden Retriever" class="pet-image">
+            <h2>Buddy</h2>
+            <p>Breed: Golden Retriever</p>
+            <p>Age: 2 Years</p>
+            <button id="adopt-btn-dog" onclick="adoptPet('adopt-btn-dog', 'status-dog')">Adopt Me</button>
+            <span id="status-dog" class="status-message"></span>
+            <a href="#" onclick="openModal('dog-modal')">More Details</a>
+        </div>
+
+        <!-- Pet Card: Cat -->
+        <div class="pet-card">
+            <img src="C:/Users/lenovo/Desktop/fsd proj/cat.jpg" alt="Persian Cat" class="pet-image">
+            <h2>Whiskers</h2>
+            <p>Breed: Persian Cat</p>
+            <p>Age: 1.5 Years</p>
+            <button id="adopt-btn-cat" onclick="adoptPet('adopt-btn-cat', 'status-cat')">Adopt Me</button>
+            <span id="status-cat" class="status-message"></span>
+            <a href="#" onclick="openModal('cat-modal')">More Details</a>
+        </div>
+
+        <!-- Pet Card: Rabbit -->
+        <div class="pet-card">
+            <img src="C:/Users/lenovo/Desktop/fsd proj/rabbit.jpg" alt="Rabbit" class="pet-image">
+            <h2>Snowball</h2>
+            <p>Breed: Holland Lop</p>
+            <p>Age: 8 Months</p>
+            <button id="adopt-btn-rabbit" onclick="adoptPet('adopt-btn-rabbit', 'status-rabbit')">Adopt Me</button>
+            <span id="status-rabbit" class="status-message"></span>
+            <a href="#" onclick="openModal('rabbit-modal')">More Details</a>
+        </div>
+
+        <!-- Pet Card: Parrot -->
+        <div class="pet-card">
+            <img src="C:/Users/lenovo/Desktop/fsd proj/parrot.jpg" alt="Parrot" class="pet-image">
+            <h2>Kiwi</h2>
+            <p>Breed: Parrot</p>
+            <p>Age: 3 Years</p>
+            <button id="adopt-btn-parrot" onclick="adoptPet('adopt-btn-parrot', 'status-parrot')">Adopt Me</button>
+            <span id="status-parrot" class="status-message"></span>
+            <a href="#" onclick="openModal('parrot-modal')">More Details</a>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <!-- Modal: Dog -->
+    <div id="dog-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('dog-modal')">&times;</span>
+            <h2>Buddy</h2>
+            <p>Buddy is a 3-year-old Labrador mix looking for a loving home. He’s friendly, active, and loves playing fetch. Buddy gets along well with people and other dogs. He’s house-trained, knows basic commands, and enjoys cuddles. Buddy is neutered, vaccinated, and microchipped. If you’re looking for a playful companion, Buddy could be the perfect fit! Contact us to meet him today.</p>
+        </div>
+    </div>
+
+    <!-- Modal: Cat -->
+    <div id="cat-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('cat-modal')">&times;</span>
+            <h2>Whiskers</h2>
+            <p>Whiskers is a 2-year-old domestic shorthair cat in search of a new home. She’s sweet, playful, and loves curling up in cozy spots. Whiskers enjoys interactive play and will happily chase toys around. She’s friendly with people and other cats, and she’s litter-box trained. Whiskers is spayed, vaccinated, and microchipped. If you're looking for a loving and affectionate companion, Whiskers might be the perfect fit! Contact us to meet her today.</p>
+        </div>
+    </div>
+
+    <!-- Modal: Rabbit -->
+    <div id="rabbit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('rabbit-modal')">&times;</span>
+            <h2>Snowball</h2>
+            <p>Snowball is a 1-year-old rabbit looking for a new home. With his soft white fur and gentle nature, Snowball loves hopping around and exploring. He’s friendly, easy to handle, and enjoys lounging in cozy corners or nibbling on fresh veggies. Snowball is litter-box trained and gets along well with other rabbits. He’s looking for a calm, loving home where he can get plenty of attention and space to roam. Snowball is neutered and healthy. If you're ready to give this adorable bunny a forever home, contact us today to meet him!</p>
+        </div>
+    </div>
+
+    <!-- Modal: Parrot -->
+    <div id="parrot-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('parrot-modal')">&times;</span>
+            <h2>Kiwi</h2>
+            <p>Kiwi is a vibrant and charming 4-year-old parrot in search of a new home. With his bright green feathers and playful personality, Kiwi loves singing, talking, and showing off his impressive vocal skills. He enjoys interacting with people and is friendly, though he thrives with a bit of attention and mental stimulation. Kiwi is hand-tame and loves spending time outside his cage. He would do best in a home where he can get plenty of socialization and interaction. Kiwi is healthy and ready to bring some fun and color into your life! Contact us to meet him today.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Pet Adoption Center | Location: 123 Church Street, Bangalore, India</p>
+        <p>&copy; 2024 Pet Adoption Center. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function adoptPet(buttonId, statusId) {
+            // Change button text to "Adopted" and disable it
+            const button = document.getElementById(buttonId);
+            button.textContent = "Adopted";
+            button.disabled = true;
+
+            // Display "Adopted" message
+            const status = document.getElementById(statusId);
+            status.textContent = "Adopted!";
+            status.style.color = "#388e3c"; // Green color
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "flex";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+    </script>
+</body>
+</html>

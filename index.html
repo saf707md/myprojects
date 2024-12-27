@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adoption Center</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to CSS file -->
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Welcome to the Pet Adoption Center</h1>
+        <p>Find your perfect companion!</p>
+    </header>
+
+    <!-- Pet List Section -->
+    <section id="pet-list">
+        <h2>Available Pets</h2>
+        <div class="pets-container" id="pets-container">
+            <!-- Pets will be loaded dynamically -->
+        </div>
+    </section>
+
+    <!-- Pet Details Modal -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" id="close-btn">&times;</span>
+            <div id="pet-details">
+                <!-- Pet details will load here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Pet Adoption Center | Adopt. Love. Repeat.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Pet Data
+        const pets = [
+            { id: 1, name: "Bella", type: "Dog", age: 2, image: "C:/Users/lenovo/Desktop/fsd proj/dog.jpg", description: "Friendly and playful!" },
+            { id: 2, name: "Max", type: "Cat", age: 3, image: "C:/Users/lenovo/Desktop/fsd proj/cat.jpg", description: "Loves to nap in the sun." },
+            { id: 3, name: "Charlie", type: "Rabbit", age: 1, image: "C:/Users/lenovo/Desktop/fsd proj/rabit.jpg", description: "Small and adorable." },
+        ];
+
+        // Load Pets Dynamically
+        const petsContainer = document.getElementById('pets-container');
+        const modal = document.getElementById('modal');
+        const petDetails = document.getElementById('pet-details');
+        const closeBtn = document.getElementById('close-btn');
+
+        function loadPets() {
+            petsContainer.innerHTML = "";
+            pets.forEach(pet => {
+                const petCard = document.createElement('div');
+                petCard.classList.add('pet-card');
+                petCard.innerHTML = `
+                    <img src="${pet.image}" alt="${pet.name}">
+                    <h3>${pet.name}</h3>
+                    <p>${pet.type} | Age: ${pet.age}</p>
+                    <button class="adopt-btn" onclick="viewPetDetails(${pet.id})">View Details</button>
+                `;
+                petsContainer.appendChild(petCard);
+            });
+        }
+
+        function viewPetDetails(id) {
+            const pet = pets.find(p => p.id === id);
+            petDetails.innerHTML = `
+                <h2>${pet.name}</h2>
+                <img src="${pet.image}" alt="${pet.name}" style="max-width: 100%; border-radius: 8px;">
+                <p><strong>Type:</strong> ${pet.type}</p>
+                <p><strong>Age:</strong> ${pet.age}</p>
+                <p>${pet.description}</p>
+                <button class="adopt-btn" onclick="adoptPet('${pet.name}')">Adopt ${pet.name}</button>
+            `;
+            modal.classList.remove('hidden');
+        }
+
+        function adoptPet(petName) {
+            alert(`Congratulations! You have adopted ${petName}.`);
+            modal.classList.add('hidden'); // Close modal after adoption
+        }
+
+        // Close Modal
+        closeBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        // Load pets on page load
+        window.onload = loadPets;
+    </script>
+</body>
+</html>
